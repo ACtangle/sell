@@ -4,7 +4,7 @@ import lombok.Getter;
 
 /**
  * ClassName OrderStatusEnum
- * Description TODO
+ * Description
  * Author melon
  * Date 2019-07-02 00:58
  * Version

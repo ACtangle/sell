@@ -7,11 +7,10 @@ import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.Date;
 
 /**
  * ClassName ProductCategory
- * Description TODO
+ * Description
  * Author melon
  * Date 2019-07-01 15:30
  * Version

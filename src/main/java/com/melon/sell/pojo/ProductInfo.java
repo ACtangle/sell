@@ -3,13 +3,12 @@ package com.melon.sell.pojo;
 import lombok.Data;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 
 /**
  * ClassName ProductInfo
- * Description TODO
+ * Description
  * Author melon
  * Date 2019-07-01 16:37
  * Version

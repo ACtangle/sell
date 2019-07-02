@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 /**
  * ClassName OrderDetail
- * Description TODO
+ * Description
  * Author melon
  * Date 2019-07-02 01:04
  * Version

@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * ClassName KeyUtils
- * Description TODO
+ * Description 生成唯一键工具类
  * Author melon
  * Date 2019-07-02 02:02
  * Version
@@ -15,7 +15,8 @@ public class KeyUtils {
     /**
      * 生成唯一的主键
      * 格式：时间+随机数
-     * @return
+     * synchronized加锁避免并发
+     * @return String
      */
     public static synchronized  String genUniqueKey() {
 

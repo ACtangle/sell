@@ -1,20 +1,15 @@
 package com.melon.sell.converter;
 
 import com.melon.sell.dto.OrderDTO;
-import com.melon.sell.pojo.OrderDetail;
 import com.melon.sell.pojo.OrderMaster;
 import org.springframework.beans.BeanUtils;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
  * ClassName OrderMaster2OrderDTO
- * Description TODO
+ * Description
  * Author melon
  * Date 2019-07-02 18:24
  * Version

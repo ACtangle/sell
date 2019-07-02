@@ -11,13 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 /**
  * ClassName ProductServiceImpl
- * Description TODO
+ * Description
  * Author melon
  * Date 2019-07-01 17:01
  * Version
@@ -51,7 +51,18 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void increaseStock(List<CartDTO> cartDTOList) {
+        for (CartDTO cartDTO : cartDTOList) {
 
+            ProductInfo productInfo = repository.findOne(cartDTO.getProductId());
+
+            if (null == productInfo){
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+            Integer result = productInfo.getProductStock() + cartDTO.getProductQuantity();
+            productInfo.setProductStock(result);
+
+            repository.save(productInfo);
+        }
     }
 
     @Override

@@ -4,7 +4,7 @@ import com.melon.sell.enums.ResultEnum;
 
 /**
  * ClassName SellException
- * Description TODO
+ * Description
  * Author melon
  * Date 2019-07-02 01:49
  * Version

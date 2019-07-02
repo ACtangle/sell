@@ -7,14 +7,12 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 /**
  * ClassName OrderMaster
- * Description TODO
+ * Description
  * Author melon
  * Date 2019-07-02 00:55
  * Version

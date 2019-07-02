@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * ClassName CartDTO
- * Description TODO
+ * Description
  * Author melon
  * Date 2019-07-02 02:13
  * Version
