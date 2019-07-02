@@ -1,5 +1,6 @@
 package com.melon.sell.sevice;
 
+import com.melon.sell.dto.CartDTO;
 import com.melon.sell.pojo.ProductInfo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,7 +34,9 @@ public interface ProductService {
 
     ProductInfo save(ProductInfo productInfo);
 
-    //TODO：加库存
+    //加库存
+    void increaseStock(List<CartDTO> cartDTOList);
 
-    //TODO：减库存
+    //减库存
+    void decreaseStock(List<CartDTO> cartDTOList);
 }
