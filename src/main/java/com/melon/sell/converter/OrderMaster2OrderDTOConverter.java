@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 /**
  * ClassName OrderMaster2OrderDTO
- * Description
+ * Description  订单主表对象转为dto对象转换器
  * Author melon
  * Date 2019-07-02 18:24
  * Version

@@ -168,11 +168,12 @@ public class OrderServiceImpl implements OrderService {
 
         OrderMaster orderMaster = new OrderMaster();
 
-        //1.判断支付状态
-        if (!orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode())) {
-            log.error("[完结订单]未支付订单");
-            throw new SellException(ResultEnum.ORDER_PAY_ERROR);
+        //1.判断订单状态
+        if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
+            log.error("[取消订单] 订单状态异常,orderId = {}, orderStatus = {}", orderDTO.getOrderId(), orderDTO.getOrderStatus());
+            throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
         }
+
 
         //2.修改订单状态
         orderDTO.setOrderStatus(OrderStatusEnum.FINISHED.getCode());
@@ -183,27 +184,29 @@ public class OrderServiceImpl implements OrderService {
             throw new SellException(ResultEnum.ORDER_UPDATE_ERROR);
         }
 
-        //3.减少库存
-        List<CartDTO> cartDTOList = orderDTO.getOrderDetailList().stream()
-                .map(e -> new CartDTO(e.getProductId(), e.getProductQuantity()))
-                .collect(Collectors.toList());
-        productService.decreaseStock(cartDTOList);
-
         return orderDTO;
     }
 
     @Override
+    @Transactional
     public OrderDTO paid(OrderDTO orderDTO) {
 
         OrderMaster orderMaster = new OrderMaster();
 
-        //1.判断是否为等待支付状态
-        if (!orderDTO.getPayStatus().equals(PayStatusEnum.WAIT.getCode())){
-            log.error("[支付订单]支付订单状态错误");
-            throw new SellException(ResultEnum.ORDER_PAY_ERROR);
+        //1.判断订单是否为新订单状态
+        //1.判断订单状态
+        if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
+            log.error("[取消订单] 订单状态异常,orderId = {}, orderStatus = {}", orderDTO.getOrderId(), orderDTO.getOrderStatus());
+            throw new SellException(ResultEnum.ORDER_STATUS_ERROR);
         }
 
-        //2.修改支付状态
+        //2.判断是否为等待支付状态
+        if (!orderDTO.getPayStatus().equals(PayStatusEnum.WAIT.getCode())){
+            log.error("[支付订单]支付订单状态错误，orderDTO:{}",orderDTO);
+            throw new SellException(ResultEnum.ORDER_PAY_STATUS_ERROR);
+        }
+
+        //3.修改支付状态
         orderDTO.setPayStatus(PayStatusEnum.SUCCESS.getCode());
         BeanUtils.copyProperties(orderDTO,orderMaster);
         OrderMaster updateResult = orderMasterRepository.save(orderMaster);
