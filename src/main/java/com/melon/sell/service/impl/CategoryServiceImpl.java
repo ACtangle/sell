@@ -1,8 +1,8 @@
-package com.melon.sell.sevice.impl;
+package com.melon.sell.service.impl;
 
 import com.melon.sell.pojo.ProductCategory;
 import com.melon.sell.repository.ProductCategoryRepository;
-import com.melon.sell.sevice.CategoryService;
+import com.melon.sell.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

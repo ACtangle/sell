@@ -1,4 +1,4 @@
-package com.melon.sell.sevice;
+package com.melon.sell.service;
 
 import com.melon.sell.dto.CartDTO;
 import com.melon.sell.pojo.ProductInfo;

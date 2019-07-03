@@ -1,11 +1,10 @@
-package com.melon.sell.sevice.impl;
+package com.melon.sell.service.impl;
 
 import com.melon.sell.dto.OrderDTO;
 import com.melon.sell.enums.OrderStatusEnum;
 import com.melon.sell.enums.PayStatusEnum;
 import com.melon.sell.pojo.OrderDetail;
-import com.melon.sell.pojo.OrderMaster;
-import com.melon.sell.sevice.OrderService;
+import com.melon.sell.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -18,8 +17,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

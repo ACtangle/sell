@@ -1,24 +1,28 @@
 package com.melon.sell.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.melon.sell.pojo.OrderDetail;
+import com.melon.sell.serializer.Date2LongSerializer;
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 /**
- * ClassName OrderDTO
- * Description
- * Author melon
- * Date 2019-07-02 01:36
- * Version
+ * @ClassName OrderDTO
+ * @Description
+ * @Author melon
+ * @Date 2019-07-02 01:36
+ * @Version
  */
 
+
+
 @Data
-@DynamicUpdate
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO {
     /**
      * 订单id
@@ -63,11 +67,13 @@ public class OrderDTO {
     /**
      * 创建时间
      */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
     /**
      * 更新时间
      */
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     List<OrderDetail> orderDetailList;

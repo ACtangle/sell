@@ -1,4 +1,4 @@
-package com.melon.sell.sevice.impl;
+package com.melon.sell.service.impl;
 
 import com.melon.sell.dto.CartDTO;
 import com.melon.sell.enums.ProductStatusEnum;
@@ -6,7 +6,7 @@ import com.melon.sell.enums.ResultEnum;
 import com.melon.sell.exception.SellException;
 import com.melon.sell.pojo.ProductInfo;
 import com.melon.sell.repository.ProductInfoRepository;
-import com.melon.sell.sevice.ProductService;
+import com.melon.sell.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

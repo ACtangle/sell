@@ -1,4 +1,4 @@
-package com.melon.sell.sevice.impl;
+package com.melon.sell.service.impl;
 
 import com.melon.sell.converter.OrderMaster2OrderDTOConverter;
 import com.melon.sell.dto.CartDTO;
@@ -12,8 +12,8 @@ import com.melon.sell.pojo.OrderMaster;
 import com.melon.sell.pojo.ProductInfo;
 import com.melon.sell.repository.OrderDetailRepository;
 import com.melon.sell.repository.OrderMasterRepository;
-import com.melon.sell.sevice.OrderService;
-import com.melon.sell.sevice.ProductService;
+import com.melon.sell.service.OrderService;
+import com.melon.sell.service.ProductService;
 import com.melon.sell.utils.KeyUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -27,7 +27,6 @@ import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -81,8 +80,8 @@ public class OrderServiceImpl implements OrderService {
 
         //3.写入订单数据库（OrderMaster)
         OrderMaster orderMaster = new OrderMaster();
+        orderDTO.setOrderId(orderId);
         BeanUtils.copyProperties(orderDTO, orderMaster);
-        orderMaster.setOrderId(orderId);
         orderMaster.setOrderAmount(orderAmount);
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());

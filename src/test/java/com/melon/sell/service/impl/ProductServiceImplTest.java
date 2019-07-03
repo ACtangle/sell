@@ -1,8 +1,8 @@
-package com.melon.sell.sevice.impl;
+package com.melon.sell.service.impl;
 
 import com.melon.sell.enums.ProductStatusEnum;
 import com.melon.sell.pojo.ProductInfo;
-import com.melon.sell.sevice.ProductService;
+import com.melon.sell.service.ProductService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,8 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 
 @RunWith(SpringRunner.class)
