@@ -12,7 +12,12 @@ spring:
 server:
   context-path: /sell
 
+wechat:
+  mpAppId:  wx6e72da652d4a8dd1
+  mpAppSecret: a20553da148998615b4cfe678f415feb
 
+wechatUrl:
+  root: http://sell.com/wechat/
 
 #logging:
 #  pattern:

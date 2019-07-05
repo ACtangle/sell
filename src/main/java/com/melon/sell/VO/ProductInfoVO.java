@@ -2,7 +2,9 @@ package com.melon.sell.VO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import org.springframework.core.serializer.Serializer;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -14,7 +16,10 @@ import java.math.BigDecimal;
  */
 
 @Data
-public class ProductInfoVO {
+public class ProductInfoVO implements Serializable {
+
+
+    private static final long serialVersionUID = -3681189541869333732L;
 
     @JsonProperty("id")
     private String productId;
